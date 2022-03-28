@@ -5,7 +5,7 @@ from time import time
 import math
 
 def calcDistance(pix1, pix2):
-    return math.sqrt((pix1[0]-pix2[0])**2 + (pix1[1]-pix2[1])**2 + (pix1[2]-pix2[2])**2)
+    return ((pix1[0]-pix2[0])**2 + (pix1[1]-pix2[1])**2 + (pix1[2]-pix2[2])**2)
 
 def countImgDistance(files, type):
     for file in files:
@@ -14,13 +14,13 @@ def countImgDistance(files, type):
         dis = 0
         for (pix1, pix2) in zip(testImg.getdata(), img.getdata()):
             dis += calcDistance(pix1, pix2)
-        distance.append([dis, type])
+        distance.append([math.sqrt(dis), type])
 
 K = 5
 start_time = time()
 x, y= 1000, 1000
 folders = ['sea', 'forest']
-testImg = Image.open('for-test.jpg')
+testImg = Image.open('sea-test.jpg')
 testImg.resize((x, y))
 
 distance = list()
