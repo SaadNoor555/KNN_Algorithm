@@ -16,11 +16,11 @@ def countImgDistance(files, type):
             dis += calcDistance(pix1, pix2)
         distance.append([dis, type])
 
-K = 3
+K = 5
 start_time = time()
-x, y= 500, 500
-folders = ['winter', 'summer']
-testImg = Image.open('w-2.jpg')
+x, y= 1000, 1000
+folders = ['sea', 'forest']
+testImg = Image.open('for-test.jpg')
 testImg.resize((x, y))
 
 distance = list()
